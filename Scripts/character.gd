@@ -19,6 +19,10 @@ func _physics_process(delta: float) -> void:
 		
 	if(directionX > 0):
 		playback.travel('move_right')
+	
+	# Test damage animation with z 
+	if Input.is_action_pressed("damage_test"):
+		playback.travel('damage')
 		
 	velocity.x = directionX * speed
 	velocity.y = directionY * speed
