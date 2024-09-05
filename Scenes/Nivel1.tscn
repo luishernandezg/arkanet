@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkpuv3tv720x0"]
+[gd_scene load_steps=3 format=3 uid="uid://bkpuv3tv720x0"]
 
 [ext_resource type="PackedScene" uid="uid://bwqfgmp83lufd" path="res://Scenes/Character.tscn" id="1_2ripf"]
+[ext_resource type="PackedScene" uid="uid://8qhymcei0n4c" path="res://Scenes/enemy_group.tscn" id="2_448l0"]
 
 [node name="Nivel1" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_2ripf")]
+position = Vector2(218, 380)
+
+[node name="EnemyGroup" parent="." instance=ExtResource("2_448l0")]
+position = Vector2(237.222, -160.035)
+scale = Vector2(1.169, 1.02829)
