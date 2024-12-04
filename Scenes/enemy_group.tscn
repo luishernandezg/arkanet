@@ -76,8 +76,9 @@ position = Vector2(0.142883, 2.03226)
 rotation = 0.0192835
 sprite_frames = SubResource("SpriteFrames_2nv8c")
 animation = &"Idle"
-frame = 1
-frame_progress = 0.638889
+autoplay = "Idle"
+frame = 4
+frame_progress = 0.611116
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Enemy"]
 position = Vector2(7.64761, 19.2567)
@@ -100,6 +101,7 @@ position = Vector2(0.142883, 2.03226)
 rotation = 0.0192835
 sprite_frames = SubResource("SpriteFrames_2nv8c")
 animation = &"Idle"
+autoplay = "Idle"
 frame = 1
 frame_progress = 0.638889
 
@@ -124,6 +126,7 @@ position = Vector2(0.142883, 2.03226)
 rotation = 0.0192835
 sprite_frames = SubResource("SpriteFrames_2nv8c")
 animation = &"Idle"
+autoplay = "Idle"
 frame = 1
 frame_progress = 0.638889
 
@@ -148,6 +151,7 @@ position = Vector2(0.142883, 2.03226)
 rotation = 0.0192835
 sprite_frames = SubResource("SpriteFrames_2nv8c")
 animation = &"Idle"
+autoplay = "Idle"
 frame = 1
 frame_progress = 0.638889
 
@@ -172,6 +176,7 @@ position = Vector2(0.142883, 2.03226)
 rotation = 0.0192835
 sprite_frames = SubResource("SpriteFrames_2nv8c")
 animation = &"Idle"
+autoplay = "Idle"
 frame = 1
 frame_progress = 0.638889
 

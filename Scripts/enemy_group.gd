@@ -1,6 +1,6 @@
 extends Path2D
 
-@export  var speed: float = 500
+@export  var speed: float = 200
 
 @onready var paths = get_children()
 	

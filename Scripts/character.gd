@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	# Get the input direction and handle the movement
 	var directionX := Input.get_axis("move_left", "move_right")

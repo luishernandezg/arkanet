@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwqfgmp83lufd"]
+[gd_scene load_steps=28 format=3 uid="uid://bwqfgmp83lufd"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_0lpbi"]
 [ext_resource type="Texture2D" uid="uid://f5daxsmj3dxd" path="res://Assets/personaje/pj_barco_2.png" id="2_oetrb"]
@@ -125,10 +125,14 @@ tracks/0/keys = {
 "values": [0.0, -0.0698132]
 }
 
+[sub_resource type="Animation" id="Animation_sugky"]
+resource_name = "heal"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak5kg"]
 _data = {
 "RESET": SubResource("Animation_eojbc"),
 "damage": SubResource("Animation_q8vqg"),
+"heal": SubResource("Animation_sugky"),
 "move_left": SubResource("Animation_h0s08"),
 "move_right": SubResource("Animation_ykjrc")
 }
@@ -176,7 +180,8 @@ script = ExtResource("1_0lpbi")
 [node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0mlur")
 animation = &"Idle"
-frame_progress = 0.074048
+frame = 2
+frame_progress = 0.927522
 
 [node name="Globo" type="Sprite2D" parent="."]
 position = Vector2(9, -76)
