@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmd3tlnw0xnp6"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_with_target.gd" id="1_sc75d"]
+[ext_resource type="Texture2D" uid="uid://gw31o15v0myl" path="res://Assets/enemigos/enemigo2.png" id="1_xr8gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60p88"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(0, 0, 146, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36bwv"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(146, 0, 146, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yljqr"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(292, 0, 146, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xeo0"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(438, 0, 146, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p0b5"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(584, 0, 146, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1p8l"]
+atlas = ExtResource("1_xr8gv")
+region = Rect2(730, 0, 146, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p87e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60p88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36bwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yljqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xeo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p0b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1p8l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcrt7"]
+radius = 23.8974
+height = 72.0885
+
+[node name="EnemyWithTarget" type="Area2D"]
+script = ExtResource("1_sc75d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6p87e")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.55692
+shape = SubResource("CapsuleShape2D_gcrt7")

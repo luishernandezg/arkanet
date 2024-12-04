@@ -173,7 +173,7 @@ states/move_right/node = SubResource("AnimationNodeAnimation_rf12a")
 states/move_right/position = Vector2(755.5, 99)
 transitions = ["move_left", "RESET", SubResource("AnimationNodeStateMachineTransition_cb8hm"), "RESET", "move_left", SubResource("AnimationNodeStateMachineTransition_jq3fs"), "RESET", "move_right", SubResource("AnimationNodeStateMachineTransition_lba2e"), "move_right", "RESET", SubResource("AnimationNodeStateMachineTransition_3vo2d"), "RESET", "damage", SubResource("AnimationNodeStateMachineTransition_ofwtj"), "damage", "RESET", SubResource("AnimationNodeStateMachineTransition_7pk8b")]
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["characters"]]
 position = Vector2(420, 169)
 script = ExtResource("1_0lpbi")
 

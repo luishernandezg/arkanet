@@ -1,7 +1,6 @@
 extends Path2D
 
 @export  var speed: float = 200
-
 @onready var paths = get_children()
 	
 func _process(delta: float) -> void:

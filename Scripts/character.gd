@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-
-@export var speed = 600.0
-
+@export var speed: float = 600.0
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta: float) -> void:
