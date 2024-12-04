@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0flgw3oxklhp"]
+
+[ext_resource type="Texture2D" uid="uid://bqvbh66wbkh15" path="res://Assets/disparo/disparo.png" id="1_a1n53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ycy"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(0, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30o4k"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(60, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54jvb"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(120, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wit3"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(180, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpake"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(240, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sraj3"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(300, 0, 60, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts5lf"]
+atlas = ExtResource("1_a1n53")
+region = Rect2(360, 0, 60, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_waa3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ycy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30o4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54jvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wit3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpake")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sraj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts5lf")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0m24i"]
+radius = 6.99924
+height = 25.9972
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb43y"]
+size = Vector2(14.8695, 16.9986)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_velocity = Vector2(1500, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_waa3w")
+animation = &"shot"
+autoplay = "shot"
+frame = 6
+frame_progress = 0.787994
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5614
+shape = SubResource("CapsuleShape2D_0m24i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+self_modulate = Color(0.443137, 1, 0.431373, 1)
+position = Vector2(28.9935, -0.499916)
+rotation = 0.00563187
+shape = SubResource("RectangleShape2D_lb43y")

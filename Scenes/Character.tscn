@@ -93,6 +93,9 @@ tracks/0/keys = {
 "values": [Color(0.705882, 0, 0.0666667, 1), Color(1, 0.314761, 0.282953, 1), Color(0.704572, 0, 0.0656478, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_sugky"]
+resource_name = "heal"
+
 [sub_resource type="Animation" id="Animation_h0s08"]
 resource_name = "move_left"
 length = 0.5
@@ -124,9 +127,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -0.0698132]
 }
-
-[sub_resource type="Animation" id="Animation_sugky"]
-resource_name = "heal"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak5kg"]
 _data = {
@@ -202,3 +202,11 @@ tree_root = SubResource("AnimationNodeStateMachine_f3tpt")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CharacterColorFilter" type="CanvasModulate" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="ShotPos" type="Marker2D" parent="."]
+position = Vector2(151, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

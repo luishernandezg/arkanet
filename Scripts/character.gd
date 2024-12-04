@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
 @export var speed: float = 600.0
+@onready var shot = preload("res://Scenes/shot.tscn")
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
+@onready var parent = get_parent()
+
+var cooldown = true
 
 func _physics_process(_delta: float) -> void:
 	
@@ -22,7 +26,23 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("damage_test"):
 		playback.travel('damage')
 		
+	if (Input.is_action_pressed("attack")):
+		shot_action()
+		
 	velocity.x = directionX * speed
 	velocity.y = directionY * speed
 
 	move_and_slide()
+	
+func shot_action() -> void:
+	if cooldown:
+		cooldown = false
+		$Timer.start()
+		var shot_isntance = shot.instantiate()
+		shot_isntance.position = $ShotPos.global_position
+		parent.add_child(shot_isntance)
+	
+
+
+func _on_timer_timeout() -> void:
+	cooldown = true
