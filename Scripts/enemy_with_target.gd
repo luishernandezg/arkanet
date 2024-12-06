@@ -3,6 +3,13 @@ extends Area2D
 @export var  speed: float = 500.0
 @onready var character = get_tree().get_nodes_in_group("characters")
 
+func set_explosion() -> void:
+	collision_mask = 0
+	collision_layer = 0
+	$AnimatedSprite2D.animation = "explosion"
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	var posicion_character = character[0].global_position

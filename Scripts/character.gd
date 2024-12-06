@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed: float = 600.0
 @onready var shot = preload("res://Scenes/shot.tscn")
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
-@onready var parent = get_parent()
 
 var cooldown = true
 
@@ -38,9 +37,11 @@ func shot_action() -> void:
 	if cooldown:
 		cooldown = false
 		$Timer.start()
-		var shot_isntance = shot.instantiate()
+		var shot_isntance: Node2D = shot.instantiate()
 		shot_isntance.position = $ShotPos.global_position
-		parent.add_child(shot_isntance)
+		add_child(shot_isntance)
+		# with top_level set to true the shot isntance is no afected by his parent
+		shot_isntance.top_level = true
 	
 
 
