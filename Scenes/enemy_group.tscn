@@ -1,137 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://8qhymcei0n4c"]
+[gd_scene load_steps=4 format=3 uid="uid://8qhymcei0n4c"]
 
-[ext_resource type="Texture2D" uid="uid://dwnve0vjsm0m6" path="res://Assets/enemigos/enemigo1.png" id="1_gypyv"]
 [ext_resource type="Script" path="res://Scripts/enemy_group.gd" id="1_n6toj"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="2_q8f1a"]
-[ext_resource type="Texture2D" uid="uid://bv2n844lrou7r" path="res://Assets/enemigos/explosion.png" id="4_557ua"]
+[ext_resource type="PackedScene" uid="uid://bf1oki0m47oep" path="res://Scenes/enemy.tscn" id="2_bsp0p"]
 
 [sub_resource type="Curve2D" id="Curve2D_44mj1"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1407, 178, 0, 0, 0, 0, 1288, 885, 0, 0, 0, 0, 1080.22, 213.01, 0, 0, 0, 0, 941.643, 843.183, 0, 0, 0, 0, 827.015, 218.845, 0, 0, 0, 0, 491.685, 603.951, 0, 0, 0, 0, 291.513, 267.469, 0, 0, 0, 0, 178.596, 549.491, 0, 0, 0, 0, -167, 542)
 }
 point_count = 9
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_em4q2"]
-atlas = ExtResource("1_gypyv")
-region = Rect2(0, 0, 156, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58bh4"]
-atlas = ExtResource("1_gypyv")
-region = Rect2(156, 0, 156, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sov4w"]
-atlas = ExtResource("1_gypyv")
-region = Rect2(312, 0, 156, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_di1t1"]
-atlas = ExtResource("1_gypyv")
-region = Rect2(468, 0, 156, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j50a3"]
-atlas = ExtResource("1_gypyv")
-region = Rect2(624, 0, 156, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aro1a"]
-atlas = ExtResource("4_557ua")
-region = Rect2(0, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_btjc8"]
-atlas = ExtResource("4_557ua")
-region = Rect2(200, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qq55n"]
-atlas = ExtResource("4_557ua")
-region = Rect2(400, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpulj"]
-atlas = ExtResource("4_557ua")
-region = Rect2(600, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkxxf"]
-atlas = ExtResource("4_557ua")
-region = Rect2(800, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g5jsl"]
-atlas = ExtResource("4_557ua")
-region = Rect2(1000, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdr3a"]
-atlas = ExtResource("4_557ua")
-region = Rect2(1200, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxds4"]
-atlas = ExtResource("4_557ua")
-region = Rect2(1400, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wm0b1"]
-atlas = ExtResource("4_557ua")
-region = Rect2(1600, 0, 200, 170)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhkqm"]
-atlas = ExtResource("4_557ua")
-region = Rect2(1800, 0, 200, 170)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2nv8c"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_em4q2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58bh4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sov4w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_di1t1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j50a3")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aro1a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_btjc8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qq55n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qpulj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vkxxf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g5jsl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pdr3a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mxds4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wm0b1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhkqm")
-}],
-"loop": false,
-"name": &"explosion",
-"speed": 15.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4syks"]
-radius = 25.0
-height = 132.0
 
 [node name="EnemyGroup" type="Path2D"]
 position = Vector2(479, -131)
@@ -144,22 +20,7 @@ rotation = 1.73755
 rotates = false
 loop = false
 
-[node name="Enemy" type="Area2D" parent="PathFollow2D" groups=["enemigo"]]
-position = Vector2(30, 30)
-rotation = -1.7665
-script = ExtResource("2_q8f1a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/Enemy"]
-position = Vector2(0.142883, 2.03226)
-rotation = 0.0192835
-sprite_frames = SubResource("SpriteFrames_2nv8c")
-animation = &"explosion"
-autoplay = "Idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Enemy"]
-position = Vector2(7.64761, 19.2567)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_4syks")
+[node name="Enemy" parent="PathFollow2D" instance=ExtResource("2_bsp0p")]
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="."]
 position = Vector2(1387.08, 296.332)
@@ -168,24 +29,7 @@ progress = 120.0
 rotates = false
 loop = false
 
-[node name="Enemy" type="Area2D" parent="PathFollow2D5" groups=["enemigo"]]
-position = Vector2(30, 30)
-rotation = -1.7665
-script = ExtResource("2_q8f1a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D5/Enemy"]
-position = Vector2(0.142883, 2.03226)
-rotation = 0.0192835
-sprite_frames = SubResource("SpriteFrames_2nv8c")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 1
-frame_progress = 0.638889
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D5/Enemy"]
-position = Vector2(7.64761, 19.2567)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_4syks")
+[node name="Enemy" parent="PathFollow2D5" instance=ExtResource("2_bsp0p")]
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="."]
 position = Vector2(1367.16, 414.669)
@@ -194,24 +38,7 @@ progress = 240.0
 rotates = false
 loop = false
 
-[node name="Enemy" type="Area2D" parent="PathFollow2D4" groups=["enemigo"]]
-position = Vector2(30, 30)
-rotation = -1.7665
-script = ExtResource("2_q8f1a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D4/Enemy"]
-position = Vector2(0.142883, 2.03226)
-rotation = 0.0192835
-sprite_frames = SubResource("SpriteFrames_2nv8c")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 1
-frame_progress = 0.638889
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D4/Enemy"]
-position = Vector2(7.64761, 19.2567)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_4syks")
+[node name="Enemy" parent="PathFollow2D4" instance=ExtResource("2_bsp0p")]
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="."]
 position = Vector2(1347.25, 533.006)
@@ -220,24 +47,7 @@ progress = 360.0
 rotates = false
 loop = false
 
-[node name="Enemy" type="Area2D" parent="PathFollow2D3" groups=["enemigo"]]
-position = Vector2(30, 30)
-rotation = -1.7665
-script = ExtResource("2_q8f1a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D3/Enemy"]
-position = Vector2(0.142883, 2.03226)
-rotation = 0.0192835
-sprite_frames = SubResource("SpriteFrames_2nv8c")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 1
-frame_progress = 0.638889
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D3/Enemy"]
-position = Vector2(7.64761, 19.2567)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_4syks")
+[node name="Enemy" parent="PathFollow2D3" instance=ExtResource("2_bsp0p")]
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="."]
 position = Vector2(1327.33, 651.344)
@@ -246,19 +56,4 @@ progress = 480.0
 rotates = false
 loop = false
 
-[node name="Enemy" type="Area2D" parent="PathFollow2D2" groups=["enemigo"]]
-position = Vector2(30, 30)
-rotation = -1.7665
-script = ExtResource("2_q8f1a")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D2/Enemy"]
-position = Vector2(0.142883, 2.03226)
-rotation = 0.0192835
-sprite_frames = SubResource("SpriteFrames_2nv8c")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D2/Enemy"]
-position = Vector2(7.64761, 19.2567)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_4syks")
+[node name="Enemy" parent="PathFollow2D2" instance=ExtResource("2_bsp0p")]
