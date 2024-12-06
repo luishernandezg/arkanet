@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwqfgmp83lufd"]
+[gd_scene load_steps=27 format=3 uid="uid://bwqfgmp83lufd"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_0lpbi"]
 [ext_resource type="Texture2D" uid="uid://f5daxsmj3dxd" path="res://Assets/personaje/pj_barco_2.png" id="2_oetrb"]
@@ -51,6 +51,91 @@ animations = [{
 radius = 79.0
 height = 262.0
 
+[sub_resource type="Animation" id="Animation_qok1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterColorFilter:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qgb30"]
+resource_name = "damage"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterColorFilter:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.566667, 1.03333, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.792157, 0, 0.0313726, 1), Color(1, 1, 1, 1), Color(0.792157, 0, 0.0313726, 1), Color(1, 1, 1, 1), Color(0.792157, 0, 0.0313726, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38ubj"]
+_data = {
+"RESET": SubResource("Animation_qok1p"),
+"damage": SubResource("Animation_qgb30")
+}
+
 [sub_resource type="Animation" id="Animation_eojbc"]
 length = 0.001
 tracks/0/type = "value"
@@ -68,7 +153,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterColorFilter:color")
+tracks/1/path = NodePath("Globo:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -77,24 +162,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_q8vqg"]
-resource_name = "damage"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterColorFilter:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.705882, 0, 0.0666667, 1), Color(1, 0.314761, 0.282953, 1), Color(0.704572, 0, 0.0656478, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_sugky"]
-resource_name = "heal"
 
 [sub_resource type="Animation" id="Animation_h0s08"]
 resource_name = "move_left"
@@ -131,17 +210,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak5kg"]
 _data = {
 "RESET": SubResource("Animation_eojbc"),
-"damage": SubResource("Animation_q8vqg"),
-"heal": SubResource("Animation_sugky"),
 "move_left": SubResource("Animation_h0s08"),
 "move_right": SubResource("Animation_ykjrc")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qha4"]
 animation = &"RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_douh7"]
-animation = &"damage"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ho6a"]
 animation = &"move_left"
@@ -157,25 +231,27 @@ animation = &"move_right"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3vo2d"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofwtj"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7pk8b"]
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f3tpt"]
 states/End/position = Vector2(1085, 99)
 states/RESET/node = SubResource("AnimationNodeAnimation_5qha4")
 states/RESET/position = Vector2(562.5, 99)
-states/damage/node = SubResource("AnimationNodeAnimation_douh7")
-states/damage/position = Vector2(561.75, 208.5)
 states/move_left/node = SubResource("AnimationNodeAnimation_4ho6a")
 states/move_left/position = Vector2(364, 99.25)
 states/move_right/node = SubResource("AnimationNodeAnimation_rf12a")
 states/move_right/position = Vector2(755.5, 99)
-transitions = ["move_left", "RESET", SubResource("AnimationNodeStateMachineTransition_cb8hm"), "RESET", "move_left", SubResource("AnimationNodeStateMachineTransition_jq3fs"), "RESET", "move_right", SubResource("AnimationNodeStateMachineTransition_lba2e"), "move_right", "RESET", SubResource("AnimationNodeStateMachineTransition_3vo2d"), "RESET", "damage", SubResource("AnimationNodeStateMachineTransition_ofwtj"), "damage", "RESET", SubResource("AnimationNodeStateMachineTransition_7pk8b")]
+transitions = ["move_left", "RESET", SubResource("AnimationNodeStateMachineTransition_cb8hm"), "RESET", "move_left", SubResource("AnimationNodeStateMachineTransition_jq3fs"), "RESET", "move_right", SubResource("AnimationNodeStateMachineTransition_lba2e"), "move_right", "RESET", SubResource("AnimationNodeStateMachineTransition_3vo2d")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7hrh"]
+radius = 65.0
+height = 212.0
 
 [node name="Character" type="CharacterBody2D" groups=["characters"]]
 position = Vector2(420, 169)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_0lpbi")
+
+[node name="CharacterColorFilter" type="CanvasModulate" parent="."]
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0mlur")
@@ -192,6 +268,11 @@ position = Vector2(6, -28)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_76erp")
 
+[node name="AnimationPlayerDamage" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_38ubj")
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ak5kg")
@@ -201,12 +282,18 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_f3tpt")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CharacterColorFilter" type="CanvasModulate" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 
 [node name="ShotPos" type="Marker2D" parent="."]
 position = Vector2(151, 0)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+self_modulate = Color(0.392157, 1, 0.227451, 1)
+position = Vector2(3, -22)
+shape = SubResource("CapsuleShape2D_a7hrh")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

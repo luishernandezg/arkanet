@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 600.0
 @onready var shot = preload("res://Scenes/shot.tscn")
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayerDamage
 
 var cooldown = true
 
@@ -23,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# Test damage animation with z 
 	if Input.is_action_pressed("damage_test"):
-		playback.travel('damage')
+		animationPlayer.play("damage")
 		
 	if (Input.is_action_pressed("attack")):
 		shot_action()
@@ -43,7 +44,15 @@ func shot_action() -> void:
 		# with top_level set to true the shot isntance is no afected by his parent
 		shot_isntance.top_level = true
 	
-
+func take_damage() -> void:
+	animationPlayer.play("damage")
+	print("DAMAGE")
 
 func _on_timer_timeout() -> void:
 	cooldown = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemigo"):
+		take_damage()
+		area.set_explosion()
