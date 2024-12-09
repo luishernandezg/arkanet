@@ -45,8 +45,8 @@ func shot_action() -> void:
 		shot_isntance.top_level = true
 	
 func take_damage() -> void:
+	Global.remove_live()
 	animationPlayer.play("damage")
-	print("DAMAGE")
 
 func _on_timer_timeout() -> void:
 	cooldown = true

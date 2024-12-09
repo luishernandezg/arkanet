@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var  speed: float = 500.0
+@export var  points: int = 50
 @onready var character = get_tree().get_nodes_in_group("characters")
 
 func set_explosion() -> void:
