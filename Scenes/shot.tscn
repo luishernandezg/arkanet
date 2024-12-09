@@ -67,7 +67,7 @@ height = 25.9972
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb43y"]
 size = Vector2(14.8695, 16.9986)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Shot" type="RigidBody2D"]
 gravity_scale = 0.0
 linear_velocity = Vector2(1500, 0)
 script = ExtResource("1_k4asw")

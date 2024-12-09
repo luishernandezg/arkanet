@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @export var speed: float = 600.0
 @onready var shot = preload("res://Scenes/shot.tscn")
+@onready var specialShot = preload("res://Scenes/spesial_shot.tscn")
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayerDamage
 
 var cooldown = true
+var powerUp = false
 
 func _physics_process(_delta: float) -> void:
 	
@@ -27,7 +29,10 @@ func _physics_process(_delta: float) -> void:
 		animationPlayer.play("damage")
 		
 	if (Input.is_action_pressed("attack")):
-		shot_action()
+		if powerUp:
+			special_shot_action()
+		else: 
+			shot_action()
 		
 	velocity.x = directionX * speed
 	velocity.y = directionY * speed
@@ -39,6 +44,16 @@ func shot_action() -> void:
 		cooldown = false
 		$Timer.start()
 		var shot_isntance: Node2D = shot.instantiate()
+		shot_isntance.position = $ShotPos.global_position
+		add_child(shot_isntance)
+		# with top_level set to true the shot isntance is no afected by his parent
+		shot_isntance.top_level = true
+		
+func special_shot_action() -> void:
+	if cooldown:
+		cooldown = false
+		$Timer.start()
+		var shot_isntance: Node2D = specialShot.instantiate()
 		shot_isntance.position = $ShotPos.global_position
 		add_child(shot_isntance)
 		# with top_level set to true the shot isntance is no afected by his parent

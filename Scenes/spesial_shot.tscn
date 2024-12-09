@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://plvn6hqpxwe8"]
+
+[ext_resource type="PackedScene" uid="uid://c0flgw3oxklhp" path="res://Scenes/shot.tscn" id="1_vbbwt"]
+
+[node name="SpesialShot" type="Node2D"]
+
+[node name="Shot" parent="." instance=ExtResource("1_vbbwt")]
+position = Vector2(0, 100)
+
+[node name="Shot2" parent="." instance=ExtResource("1_vbbwt")]
+position = Vector2(0, -100)
+
+[node name="Shot3" parent="." instance=ExtResource("1_vbbwt")]
+position = Vector2(50, 0)
