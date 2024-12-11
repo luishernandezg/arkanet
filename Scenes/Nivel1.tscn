@@ -31,10 +31,11 @@ script = ExtResource("2_mmqpa")
 position = Vector2(-742, -160)
 
 [node name="EnemyGroup" parent="." instance=ExtResource("2_448l0")]
-position = Vector2(237.222, -160.035)
+position = Vector2(2161, -68)
 scale = Vector2(1.169, 1.02829)
 
 [node name="EnemyWithTarget" parent="." instance=ExtResource("3_mgh68")]
+position = Vector2(2708, 343)
 
 [node name="PowerUp" type="Area2D" parent="."]
 position = Vector2(975, 339)
