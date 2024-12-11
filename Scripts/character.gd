@@ -5,9 +5,14 @@ extends CharacterBody2D
 @onready var specialShot = preload("res://Scenes/spesial_shot.tscn")
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayerDamage
-
+@onready var hub: Node = get_tree().get_first_node_in_group("HUB")
 var cooldown = true
 var powerUp = false
+
+func _ready() -> void:
+	Global.live = 3
+	Global.score = 0
+	Global.score_label = hub.get_node("ScoreBar/Label")
 
 func _physics_process(_delta: float) -> void:
 	
@@ -61,6 +66,9 @@ func special_shot_action() -> void:
 	
 func take_damage() -> void:
 	Global.remove_live()
+	var lifeBar: TextureRect  = hub.get_node("LifeBar")
+	var lifes: Array[Node] = lifeBar.get_children()
+	lifes[Global.live].visible = false
 	animationPlayer.play("damage")
 
 func _on_timer_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkpuv3tv720x0"]
+[gd_scene load_steps=14 format=3 uid="uid://bkpuv3tv720x0"]
 
 [ext_resource type="PackedScene" uid="uid://bwqfgmp83lufd" path="res://Scenes/Character.tscn" id="1_2ripf"]
 [ext_resource type="Texture2D" uid="uid://yac0ve1v5aut" path="res://Assets/fondo/fondo.jpg" id="1_7b1ap"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://Scripts/power_up.gd" id="4_majqm"]
 [ext_resource type="Texture2D" uid="uid://c3g1pyba3xjlq" path="res://Assets/disparo/powerUp.png" id="5_c6kqk"]
 [ext_resource type="PackedScene" uid="uid://dadvsfxfg6oq1" path="res://Scenes/montain.tscn" id="8_4mmqr"]
+[ext_resource type="Texture2D" uid="uid://bpbj7yejkychn" path="res://Assets/hud/barra_vida.png" id="9_2v0vq"]
+[ext_resource type="Texture2D" uid="uid://3430mo7s0ca0" path="res://Assets/hud/vida.png" id="10_13km7"]
+[ext_resource type="Texture2D" uid="uid://c2tdpclchduwx" path="res://Assets/hud/tabla_puntos.png" id="11_ob3l6"]
+[ext_resource type="FontFile" uid="uid://bgfdov55d5vfu" path="res://Assets/fonts/Kubika Font/Kubika Rough.ttf" id="12_wonjm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jb847"]
 radius = 28.6356
@@ -51,5 +55,61 @@ shape = SubResource("CircleShape2D_jb847")
 
 [node name="Montain2" parent="." instance=ExtResource("8_4mmqr")]
 position = Vector2(2074, 0)
+
+[node name="HUB" type="CanvasLayer" parent="." groups=["HUB"]]
+
+[node name="LifeBar" type="TextureRect" parent="HUB"]
+offset_left = 57.0
+offset_top = 54.0
+offset_right = 449.0
+offset_bottom = 155.0
+texture = ExtResource("9_2v0vq")
+
+[node name="Life1" type="TextureRect" parent="HUB/LifeBar"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 37.0
+offset_right = 215.0
+offset_bottom = 58.0
+texture = ExtResource("10_13km7")
+stretch_mode = 2
+
+[node name="Life2" type="TextureRect" parent="HUB/LifeBar"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 37.0
+offset_right = 292.0
+offset_bottom = 58.0
+texture = ExtResource("10_13km7")
+stretch_mode = 2
+
+[node name="Life3" type="TextureRect" parent="HUB/LifeBar"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 37.0
+offset_right = 369.0
+offset_bottom = 58.0
+texture = ExtResource("10_13km7")
+stretch_mode = 2
+
+[node name="ScoreBar" type="TextureRect" parent="HUB"]
+offset_left = 1576.0
+offset_top = 50.0
+offset_right = 1902.0
+offset_bottom = 151.0
+texture = ExtResource("11_ob3l6")
+
+[node name="Label" type="Label" parent="HUB/ScoreBar"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 34.0
+offset_right = 234.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("12_wonjm")
+theme_override_font_sizes/font_size = 32
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
 
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_body_entered"]
