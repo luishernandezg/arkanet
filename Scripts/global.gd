@@ -11,6 +11,7 @@ func remove_live():
 		live -= 1
 	else:
 		print("You lose")
+		score_label.text = str(0)
 		get_tree().reload_current_scene()
 	print("Lives: ",live )
 

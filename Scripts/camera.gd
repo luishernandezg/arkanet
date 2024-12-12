@@ -4,4 +4,5 @@ extends Camera2D
 
 # Camera movement
 func _physics_process(delta: float) -> void:
-	position.x += speed*delta
+	pass
+	#position.x += speed*delta

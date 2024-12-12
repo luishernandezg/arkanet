@@ -41,8 +41,12 @@ func _physics_process(_delta: float) -> void:
 		
 	velocity.x = directionX * speed
 	velocity.y = directionY * speed
-
+	
 	move_and_slide()
+	if is_on_wall():
+		print("COLIDE")
+		take_damage()
+	
 	
 func shot_action() -> void:
 	if cooldown:
