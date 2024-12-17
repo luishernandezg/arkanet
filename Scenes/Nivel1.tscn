@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bkpuv3tv720x0"]
+[gd_scene load_steps=18 format=4 uid="uid://bkpuv3tv720x0"]
 
 [ext_resource type="PackedScene" uid="uid://bwqfgmp83lufd" path="res://Scenes/Character.tscn" id="1_2ripf"]
 [ext_resource type="Texture2D" uid="uid://yac0ve1v5aut" path="res://Assets/fondo/fondo.jpg" id="1_7b1ap"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3g1pyba3xjlq" path="res://Assets/disparo/powerUp.png" id="5_c6kqk"]
 [ext_resource type="PackedScene" uid="uid://dadvsfxfg6oq1" path="res://Scenes/montain.tscn" id="8_4mmqr"]
 [ext_resource type="Texture2D" uid="uid://bpbj7yejkychn" path="res://Assets/hud/barra_vida.png" id="9_2v0vq"]
+[ext_resource type="PackedScene" uid="uid://bwhryv51fk4uf" path="res://Scenes/goal.tscn" id="9_4k0sc"]
 [ext_resource type="Texture2D" uid="uid://3430mo7s0ca0" path="res://Assets/hud/vida.png" id="10_13km7"]
 [ext_resource type="Texture2D" uid="uid://c2tdpclchduwx" path="res://Assets/hud/tabla_puntos.png" id="11_ob3l6"]
 [ext_resource type="FontFile" uid="uid://bgfdov55d5vfu" path="res://Assets/fonts/Kubika Font/Kubika Rough.ttf" id="12_wonjm"]
@@ -147,8 +148,14 @@ shape = SubResource("CircleShape2D_jb847")
 
 [node name="Montain" parent="." instance=ExtResource("8_4mmqr")]
 
-[node name="Montain2" parent="." instance=ExtResource("8_4mmqr")]
-position = Vector2(2074, 0)
+[node name="Goal" parent="." instance=ExtResource("9_4k0sc")]
+position = Vector2(4493, 635)
+nextLevel = "res://Scenes/Nivel1.tscn"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -88)
+tile_map_data = PackedByteArray("AAASAAsAAAAAAAEAAAASAAoAAAAAAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAATAAsAAAABAAEAAAASAAkAAAAAAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAWAAoAAAABAAEAAAAVAAoAAAABAAEAAAAVAAsAAAABAAEAAAAUAAsAAAABAAEAAAAWAAsAAAABAAEAAAASAAgAAAAAAAAAAAATAAgAAAABAAAAAAAUAAgAAAABAAAAAAAVAAgAAAABAAAAAAAWAAgAAAABAAAAAAATAAwAAAABAAEAAAASAAwAAAAAAAIAAAAUAAwAAAABAAEAAAAUAA0AAAABAAIAAAAVAA0AAAABAAIAAAAWAA0AAAACAAIAAAAWAAwAAAABAAEAAAAVAAwAAAABAAEAAAAXAAwAAAACAAIAAAAXAAsAAAACAAEAAAAXAAoAAAACAAEAAAAXAAkAAAACAAEAAAAXAAgAAAACAAAAAAATAA0AAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_54cmr")
 
 [node name="HUB" type="CanvasLayer" parent="." groups=["HUB"]]
 
@@ -205,10 +212,5 @@ text = "000"
 horizontal_alignment = 2
 vertical_alignment = 1
 clip_text = true
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, -88)
-tile_map_data = PackedByteArray("AAASAAsAAAAAAAIAAAASAAoAAAAAAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAATAAsAAAABAAIAAAASAAkAAAAAAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAACAAEAAAAWAAoAAAACAAEAAAAVAAoAAAABAAEAAAAVAAsAAAABAAIAAAAUAAsAAAABAAIAAAAWAAsAAAACAAIAAAASAAgAAAAAAAAAAAATAAgAAAABAAAAAAAUAAgAAAABAAAAAAAVAAgAAAABAAAAAAAWAAgAAAACAAAAAAAQAAsAAAABAAAAAAAQAAoAAAABAAAAAAAQAAkAAAABAAAAAAAQAAgAAAABAAAAAAAQAAcAAAABAAAAAAAQAAYAAAABAAAAAAAQAAUAAAABAAAAAAAQAAQAAAABAAAAAAAQAAMAAAABAAAAAAAQAAIAAAABAAAAAAAQAAEAAAABAAAAAAAQAAwAAAABAAAAAAAYAAoAAAABAAAAAAAZAAoAAAABAAAAAAAPAAkAAAABAAAAAAAPAAcAAAABAAAAAAAPAAgAAAABAAAAAAAPAAEAAAABAAAAAAAPAAIAAAABAAAAAAAPAAMAAAABAAAAAAAPAAQAAAABAAAAAAAPAAUAAAABAAAAAAAPAAYAAAABAAAAAAAOAAEAAAABAAAAAAAOAAIAAAABAAAAAAAOAAMAAAABAAAAAAAOAAQAAAABAAAAAAAOAAUAAAABAAAAAAAOAAYAAAABAAAAAAAOAAcAAAABAAAAAAAOAAgAAAABAAAAAAAOAAkAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_54cmr")
 
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_body_entered"]

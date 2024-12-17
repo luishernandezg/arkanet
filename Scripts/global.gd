@@ -5,6 +5,7 @@ extends Node
 var live = 3
 var score = 0
 var score_label: Label
+var cinematic_is_playing = false
 
 func remove_live():
 	if live > 1:

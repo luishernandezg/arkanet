@@ -4,5 +4,5 @@ extends Camera2D
 
 # Camera movement
 func _physics_process(delta: float) -> void:
-	pass
-	#position.x += speed*delta
+	if !Global.cinematic_is_playing:	
+		position.x += speed*delta
