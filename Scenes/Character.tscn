@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwqfgmp83lufd"]
+[gd_scene load_steps=28 format=3 uid="uid://bwqfgmp83lufd"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_0lpbi"]
 [ext_resource type="Texture2D" uid="uid://f5daxsmj3dxd" path="res://Assets/personaje/pj_barco_2.png" id="2_oetrb"]
 [ext_resource type="Texture2D" uid="uid://dq4gxtnsdvl5v" path="res://Assets/personaje/pj_globo.png" id="3_vsygr"]
+[ext_resource type="AudioStream" uid="uid://dsjnbgmt8kh0s" path="res://Sounds/sfx/disparo.ogg" id="4_14rcw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n35es"]
 atlas = ExtResource("2_oetrb")
@@ -340,6 +341,10 @@ position = Vector2(151, 0)
 self_modulate = Color(0.392157, 1, 0.227451, 1)
 position = Vector2(3, -22)
 shape = SubResource("CapsuleShape2D_a7hrh")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_14rcw")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

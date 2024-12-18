@@ -1,26 +1,23 @@
-[gd_scene load_steps=18 format=4 uid="uid://bkpuv3tv720x0"]
+[gd_scene load_steps=17 format=4 uid="uid://bkpuv3tv720x0"]
 
-[ext_resource type="PackedScene" uid="uid://bwqfgmp83lufd" path="res://Scenes/Character.tscn" id="1_2ripf"]
-[ext_resource type="Texture2D" uid="uid://yac0ve1v5aut" path="res://Assets/fondo/fondo.jpg" id="1_7b1ap"]
-[ext_resource type="PackedScene" uid="uid://8qhymcei0n4c" path="res://Scenes/enemy_group.tscn" id="2_448l0"]
-[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_mmqpa"]
-[ext_resource type="PackedScene" uid="uid://dmd3tlnw0xnp6" path="res://Scenes/enemy_with_target.tscn" id="3_mgh68"]
-[ext_resource type="Script" path="res://Scripts/power_up.gd" id="4_majqm"]
-[ext_resource type="Texture2D" uid="uid://c3g1pyba3xjlq" path="res://Assets/disparo/powerUp.png" id="5_c6kqk"]
-[ext_resource type="PackedScene" uid="uid://dadvsfxfg6oq1" path="res://Scenes/montain.tscn" id="8_4mmqr"]
-[ext_resource type="Texture2D" uid="uid://bpbj7yejkychn" path="res://Assets/hud/barra_vida.png" id="9_2v0vq"]
-[ext_resource type="PackedScene" uid="uid://bwhryv51fk4uf" path="res://Scenes/goal.tscn" id="9_4k0sc"]
-[ext_resource type="Texture2D" uid="uid://3430mo7s0ca0" path="res://Assets/hud/vida.png" id="10_13km7"]
-[ext_resource type="Texture2D" uid="uid://c2tdpclchduwx" path="res://Assets/hud/tabla_puntos.png" id="11_ob3l6"]
-[ext_resource type="FontFile" uid="uid://bgfdov55d5vfu" path="res://Assets/fonts/Kubika Font/Kubika Rough.ttf" id="12_wonjm"]
-[ext_resource type="Texture2D" uid="uid://8m2ljiq6he8f" path="res://Assets/fondo/tilemap.png" id="13_b8ute"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jb847"]
-radius = 28.6356
+[ext_resource type="Texture2D" uid="uid://yac0ve1v5aut" path="res://Assets/fondo/fondo.jpg" id="1_ut2lu"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_77crj"]
+[ext_resource type="PackedScene" uid="uid://bwqfgmp83lufd" path="res://Scenes/Character.tscn" id="3_mkl47"]
+[ext_resource type="PackedScene" uid="uid://h1e05ojo6mk3" path="res://Scenes/power_up.tscn" id="4_tbgng"]
+[ext_resource type="PackedScene" uid="uid://dadvsfxfg6oq1" path="res://Scenes/montain.tscn" id="5_hngr8"]
+[ext_resource type="PackedScene" uid="uid://8qhymcei0n4c" path="res://Scenes/enemy_group.tscn" id="6_vs6gq"]
+[ext_resource type="PackedScene" uid="uid://dmd3tlnw0xnp6" path="res://Scenes/enemy_with_target.tscn" id="7_7aus6"]
+[ext_resource type="PackedScene" uid="uid://bwhryv51fk4uf" path="res://Scenes/goal.tscn" id="8_eo6ic"]
+[ext_resource type="Texture2D" uid="uid://8m2ljiq6he8f" path="res://Assets/fondo/tilemap.png" id="9_pt8ir"]
+[ext_resource type="Texture2D" uid="uid://bpbj7yejkychn" path="res://Assets/hud/barra_vida.png" id="10_fvkmp"]
+[ext_resource type="Texture2D" uid="uid://3430mo7s0ca0" path="res://Assets/hud/vida.png" id="11_d5s3j"]
+[ext_resource type="Texture2D" uid="uid://c2tdpclchduwx" path="res://Assets/hud/tabla_puntos.png" id="12_gjbbh"]
+[ext_resource type="FontFile" uid="uid://bgfdov55d5vfu" path="res://Assets/fonts/Kubika Font/Kubika Rough.ttf" id="13_j8bj2"]
+[ext_resource type="AudioStream" uid="uid://clwnhu1lyk5qk" path="res://Sounds/bgm/Archnet-music-background_mezcla.ogg" id="14_biha3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nviij"]
 resource_name = "rock"
-texture = ExtResource("13_b8ute")
+texture = ExtResource("9_pt8ir")
 texture_region_size = Vector2i(90, 90)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -109,7 +106,7 @@ terrain_set_0/terrain_0/name = "terrain_rock"
 terrain_set_0/terrain_0/color = Color(0.14902, 0.737255, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_nviij")
 
-[node name="Nivel1" type="Node2D"]
+[node name="TempleteLevel" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -118,43 +115,37 @@ motion_mirroring = Vector2(5760, 0)
 
 [node name="Fondo" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(2880, 540)
-texture = ExtResource("1_7b1ap")
+texture = ExtResource("1_ut2lu")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
-script = ExtResource("2_mmqpa")
+script = ExtResource("2_77crj")
 
-[node name="Character" parent="Camera" instance=ExtResource("1_2ripf")]
+[node name="Character" parent="Camera" instance=ExtResource("3_mkl47")]
 position = Vector2(-742, -160)
 collision_layer = 1
 collision_mask = 3
 
-[node name="EnemyGroup" parent="." instance=ExtResource("2_448l0")]
+[node name="PowerUp" parent="." instance=ExtResource("4_tbgng")]
+
+[node name="Montain" parent="." instance=ExtResource("5_hngr8")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyGroup" parent="Enemies" instance=ExtResource("6_vs6gq")]
 position = Vector2(2161, -68)
 scale = Vector2(1.169, 1.02829)
 
-[node name="EnemyWithTarget" parent="." instance=ExtResource("3_mgh68")]
+[node name="EnemyWithTarget" parent="Enemies" instance=ExtResource("7_7aus6")]
 position = Vector2(2708, 343)
 
-[node name="PowerUp" type="Area2D" parent="."]
-position = Vector2(975, 339)
-script = ExtResource("4_majqm")
-
-[node name="PowerUp" type="Sprite2D" parent="PowerUp"]
-texture = ExtResource("5_c6kqk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerUp"]
-shape = SubResource("CircleShape2D_jb847")
-
-[node name="Montain" parent="." instance=ExtResource("8_4mmqr")]
-
-[node name="Goal" parent="." instance=ExtResource("9_4k0sc")]
-position = Vector2(4493, 635)
-nextLevel = "res://Scenes/Nivel1.tscn"
+[node name="Goal" parent="." instance=ExtResource("8_eo6ic")]
+position = Vector2(9252, 632)
+nextLevel = "res://Scenes/TempleteLevel.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, -88)
-tile_map_data = PackedByteArray("AAASAAsAAAAAAAEAAAASAAoAAAAAAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAATAAsAAAABAAEAAAASAAkAAAAAAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAWAAoAAAABAAEAAAAVAAoAAAABAAEAAAAVAAsAAAABAAEAAAAUAAsAAAABAAEAAAAWAAsAAAABAAEAAAASAAgAAAAAAAAAAAATAAgAAAABAAAAAAAUAAgAAAABAAAAAAAVAAgAAAABAAAAAAAWAAgAAAABAAAAAAATAAwAAAABAAEAAAASAAwAAAAAAAIAAAAUAAwAAAABAAEAAAAUAA0AAAABAAIAAAAVAA0AAAABAAIAAAAWAA0AAAACAAIAAAAWAAwAAAABAAEAAAAVAAwAAAABAAEAAAAXAAwAAAACAAIAAAAXAAsAAAACAAEAAAAXAAoAAAACAAEAAAAXAAkAAAACAAEAAAAXAAgAAAACAAAAAAATAA0AAAAAAAIAAAA=")
+position = Vector2(-6, -52)
+tile_map_data = PackedByteArray("AAASAAsAAAAAAAEAAAASAAoAAAAAAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAATAAsAAAABAAEAAAASAAkAAAAAAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAWAAoAAAABAAEAAAAVAAoAAAABAAEAAAAVAAsAAAABAAEAAAAUAAsAAAABAAEAAAAWAAsAAAABAAEAAAASAAgAAAAAAAAAAAATAAgAAAABAAAAAAAUAAgAAAABAAAAAAAVAAgAAAABAAAAAAAWAAgAAAABAAAAAAATAAwAAAABAAEAAAASAAwAAAAAAAIAAAAUAAwAAAABAAEAAAAUAA0AAAABAAIAAAAVAA0AAAABAAIAAAAWAA0AAAACAAIAAAAWAAwAAAABAAEAAAAVAAwAAAABAAEAAAAXAAwAAAACAAIAAAAXAAsAAAACAAEAAAAXAAoAAAACAAEAAAAXAAkAAAACAAEAAAAXAAgAAAACAAAAAAATAA0AAAAAAAIAAAAhAAEAAAAAAAEAAAAhAAIAAAAAAAEAAAAiAAIAAAABAAEAAAAiAAMAAAABAAEAAAAjAAMAAAABAAEAAAAjAAIAAAABAAEAAAAkAAIAAAABAAEAAAAlAAIAAAACAAEAAAAlAAEAAAACAAEAAAAkAAEAAAABAAEAAAAjAAEAAAABAAEAAAAiAAEAAAABAAEAAAAhAAAAAAAAAAAAAAAiAAAAAAABAAAAAAAjAAAAAAABAAAAAAAhAAMAAAAAAAIAAAAiAAQAAAAAAAIAAAAjAAQAAAABAAIAAAAkAAMAAAABAAEAAAAlAAMAAAACAAIAAAAkAAAAAAABAAAAAAAkAAQAAAACAAIAAAAlAAAAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_54cmr")
 
 [node name="HUB" type="CanvasLayer" parent="." groups=["HUB"]]
@@ -164,7 +155,7 @@ offset_left = 57.0
 offset_top = 54.0
 offset_right = 449.0
 offset_bottom = 155.0
-texture = ExtResource("9_2v0vq")
+texture = ExtResource("10_fvkmp")
 
 [node name="Life1" type="TextureRect" parent="HUB/LifeBar"]
 layout_mode = 0
@@ -172,7 +163,7 @@ offset_left = 148.0
 offset_top = 37.0
 offset_right = 215.0
 offset_bottom = 58.0
-texture = ExtResource("10_13km7")
+texture = ExtResource("11_d5s3j")
 stretch_mode = 2
 
 [node name="Life2" type="TextureRect" parent="HUB/LifeBar"]
@@ -181,7 +172,7 @@ offset_left = 225.0
 offset_top = 37.0
 offset_right = 292.0
 offset_bottom = 58.0
-texture = ExtResource("10_13km7")
+texture = ExtResource("11_d5s3j")
 stretch_mode = 2
 
 [node name="Life3" type="TextureRect" parent="HUB/LifeBar"]
@@ -190,7 +181,7 @@ offset_left = 302.0
 offset_top = 37.0
 offset_right = 369.0
 offset_bottom = 58.0
-texture = ExtResource("10_13km7")
+texture = ExtResource("11_d5s3j")
 stretch_mode = 2
 
 [node name="ScoreBar" type="TextureRect" parent="HUB"]
@@ -198,7 +189,7 @@ offset_left = 1576.0
 offset_top = 50.0
 offset_right = 1902.0
 offset_bottom = 151.0
-texture = ExtResource("11_ob3l6")
+texture = ExtResource("12_gjbbh")
 
 [node name="Label" type="Label" parent="HUB/ScoreBar"]
 layout_mode = 0
@@ -206,11 +197,14 @@ offset_left = 126.0
 offset_top = 34.0
 offset_right = 234.0
 offset_bottom = 66.0
-theme_override_fonts/font = ExtResource("12_wonjm")
+theme_override_fonts/font = ExtResource("13_j8bj2")
 theme_override_font_sizes/font_size = 32
 text = "000"
 horizontal_alignment = 2
 vertical_alignment = 1
 clip_text = true
 
-[connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_body_entered"]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_biha3")
+autoplay = true
+bus = &"BGM"

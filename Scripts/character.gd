@@ -52,6 +52,7 @@ func shot_action() -> void:
 	if cooldown:
 		cooldown = false
 		$Timer.start()
+		$ShootSound.play()
 		var shot_isntance: Node2D = shot.instantiate()
 		shot_isntance.position = $ShotPos.global_position
 		add_child(shot_isntance)
@@ -62,6 +63,7 @@ func special_shot_action() -> void:
 	if cooldown:
 		cooldown = false
 		$Timer.start()
+		$ShootSound.play()
 		var shot_isntance: Node2D = specialShot.instantiate()
 		shot_isntance.position = $ShotPos.global_position
 		add_child(shot_isntance)

@@ -13,6 +13,7 @@ point_count = 9
 position = Vector2(479, -131)
 curve = SubResource("Curve2D_44mj1")
 script = ExtResource("1_n6toj")
+speed = 500.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(1407, 178)

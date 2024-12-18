@@ -10,6 +10,7 @@ func set_explosion() -> void:
 	collision_mask = 0
 	collision_layer = 0
 	$AnimatedSprite2D.animation = "explosion"
+	$EnemyDestroyedSound.play()
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 
