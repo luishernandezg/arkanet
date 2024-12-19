@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxxl0ndwdiyoy"]
+
+[ext_resource type="Script" path="res://Scripts/main_screen.gd" id="1_j1k4h"]
+[ext_resource type="Texture2D" uid="uid://b5rk84ds378ea" path="res://Assets/pantalla_principal/background_menu.jpg" id="2_qfs0v"]
+[ext_resource type="Texture2D" uid="uid://dinchead10j0y" path="res://Assets/pantalla_principal/logo.png" id="3_gpdit"]
+[ext_resource type="FontFile" uid="uid://dwjsx7cu45r8g" path="res://Assets/fonts/presets/kubica.tres" id="4_58qbo"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1k4h")
+metadata/_edit_lock_ = true
+
+[node name="background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="BG" type="TextureRect" parent="background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qfs0v")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -509.0
+offset_top = 121.0
+offset_right = 509.0
+offset_bottom = 342.0
+grow_horizontal = 2
+texture = ExtResource("3_gpdit")
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -80.0
+offset_right = 249.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -37.0
+offset_right = 61.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_58qbo")
+theme_override_font_sizes/font_size = 65
+text = "PLAY"
+flat = true
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
